@@ -17,6 +17,13 @@
 		"flow-bin": "^0.35.0",
 		"react": "15.4.1",
 		"react-native": "0.39.1",
+		"react-native-apple-healthkit": "^0.2.1",
+		"react-native-svg": "^4.4.1",
 		"react-router": "v4.0.0-alpha.6"
+	},
+	"rnpm": {
+		"assets": [
+			"src/ressources/assets/"
+		]
 	}
 }
