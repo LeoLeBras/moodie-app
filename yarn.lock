@@ -2939,9 +2939,9 @@ react-native-svg@^4.4.1:
     color "^0.11.1"
     lodash "^4.0.0"
 
-react-native@0.39.1:
-  version "0.39.1"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.39.1.tgz#87c0cd962a05e9011735a35eff927e9564e868a5"
+react-native@v0.39.2:
+  version "0.39.2"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.39.2.tgz#c73ed67ff25ea8e31643ac6ef2d60a88f26d12c1"
   dependencies:
     absolute-path "^0.0.0"
     art "^0.10.0"

@@ -18,15 +18,8 @@
 {
   NSURL *jsCodeLocation;
 
-  #if DEBUG
-    #if TARGET_IPHONE_SIMULATOR
-      jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
-    #else
-      jsCodeLocation = [NSURL URLWithString:@"http://10.31.2.21:8081/index.ios.bundle"];
-    #endif
-  #else
-    jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-  #endif
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"Moodie"
