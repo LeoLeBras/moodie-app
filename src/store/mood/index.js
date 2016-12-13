@@ -12,6 +12,7 @@ const initialState = {
 
 export default (state: Mood = initialState, action: Action): Mood => {
   switch (action.type) {
+    case SELECT_MOOD:
     case CHANGE_MOOD: {
       return {
         ...state,
