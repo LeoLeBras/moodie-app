@@ -1,11 +1,13 @@
 /* @flow */
 
-import { StyleSheet } from 'react-native'
+import { Dimensions, StyleSheet } from 'react-native'
 import { rem } from '@helpers/stylesheet'
 import { NEUTRAL_COLOR_00 } from '@theme/colors'
 import { OPENSANS_SEMI_BOLD } from '@theme/fonts'
 
-const INPUT_SIZE = rem(10)
+const INPUT_SIZE = Dimensions.get('window').width >= 375
+  ? rem(11)
+  : rem(10)
 
 const styles = StyleSheet.create({
   container: {

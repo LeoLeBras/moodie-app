@@ -1,6 +1,6 @@
 /* @flow */
 
-import { StyleSheet } from 'react-native'
+import { Dimensions, StyleSheet } from 'react-native'
 import { rem } from '@helpers/stylesheet'
 import { NEUTRAL_COLOR_00 } from '@theme/colors'
 import { OPENSANS_SEMI_BOLD } from '@theme/fonts'
@@ -8,7 +8,9 @@ import { DEFAULT_BOX_SHADOW } from '@theme/box-shadows'
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: rem(.25),
+    marginHorizontal: Dimensions.get('window').width >= 375
+      ? rem(.75)
+      : rem(.25),
     height: rem(4.25),
     width: rem(9),
     ...DEFAULT_BOX_SHADOW,

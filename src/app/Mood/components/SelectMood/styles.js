@@ -45,8 +45,12 @@ const styles = StyleSheet.create({
   button: {
     width: rem(17),
     paddingVertical: rem(1.125),
-    marginTop: rem(1.25),
-    marginBottom: rem(.5),
+    marginTop: Dimensions.get('window').height >= 667
+      ? rem(2.25)
+      : rem(1.25),
+    marginBottom: Dimensions.get('window').height >= 667
+      ? rem(2)
+      : rem(.5),
     ...DEFAULT_BOX_SHADOW,
     borderRadius: rem(.125),
   },
