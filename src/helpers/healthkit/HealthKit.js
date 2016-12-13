@@ -16,7 +16,8 @@ type Props = {
   permissions: Permissions,
   read: { [key: string]: () => Promise<any> },
   onReadSuccess?: (data: Data) => void,
-  onReadFailure?: () => Object,
+  onReadFailure?: (error: Object) => void,
+  polling?: number,
 }
 
 type State = {
@@ -31,7 +32,9 @@ class HealthKit extends Component<void, Props, State> {
   state: State = { error: false, data: {}, loading: true }
 
   componentDidMount(): void {
+    const { polling } = this.props
     this.loadHealthKit()
+    if (polling) setInterval(this.loadHealthKit, polling)
   }
 
   loadHealthKit = async () => {
