@@ -28,8 +28,7 @@ And see [Getting Started](https://facebook.github.io/react-native/docs/getting-s
 ```shell
 $ yarn start                    # or: node_modules/react-native/packager/packager.sh
 ```
-This will start a lightweight development server.
-Open `iosApp.xcodeproj in Xcode, build and run the project.
+Open ```Moodie.xcodeproj``` in Xcode, build and run the project.
 
 ## Issues
 If you run into any issues please see the [Getting Started](http://facebook.github.io/react-native/docs/getting-started.html) guide for React Native before submitting an issue.
