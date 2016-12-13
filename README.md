@@ -7,8 +7,9 @@
 - [Xcode](https://developer.apple.com/xcode/) for iOS development
 
 ## Stack
-- [React Native](https://facebook.github.io/react-native/) `^0.30.0` for building native apps using react
-- [Babel](http://babeljs.io/) for ES6+ support
+- [React Native](https://facebook.github.io/react-native/) `^0.39.0` for building native apps using react
+- [Redux](http://redux.js.org) `^3.6.0` a predictable state container for JavaScript apps
+- [React Router](https://react-router.now.sh/) `^4.x.x` declarative routing for React.
 
 ## Make the awesome
 Clone the repo:
