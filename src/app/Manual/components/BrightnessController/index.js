@@ -2,12 +2,18 @@
 /* eslint global-require: 0 */
 
 import React, { Component } from 'react'
-import { Animated, View, Slider, Image, Text } from 'react-native'
+import { Animated, View, Platform, Slider, TouchableOpacity, TouchableNativeFeedback, Image, Text } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { PRIMARY_BRAND_COLOR_40, PRIMARY_BRAND_COLOR_50, SECONDARY_BRAND_COLOR_40 } from '@theme/colors'
 import styles from './styles'
 
+const MIN_VALUE = 0
+const MAX_VALUE = 100
 const DEFAULT_VALUE = 100
+
+const Touchable = Platform.OS === 'ios'
+  ? TouchableOpacity
+  : TouchableNativeFeedback
 
 type State = {
   value: number, // 0 => 100
@@ -23,17 +29,38 @@ class BrightnessController extends Component<void, Props, State> {
   state: State = { value: DEFAULT_VALUE }
   pan: Animated = new Animated.Value(DEFAULT_VALUE)
 
-  onChangeValue = (value: number): void => {
+  onChangeValue = (value: number, spring: boolean = false): any => {
     if (value !== this.state.value) {
-      this.pan.setValue(value)
       this.setState({ value })
+      if (spring) {
+        return Animated.spring(
+          this.pan,
+          {
+            toValue: value,
+            friction: 1.5,
+          }
+        ).start()
+      }
+      return this.pan.setValue(value)
     }
+    return null
   }
 
   onSlidingComplete = (): void => {
     const { onChangeBrightness } = this.props
     const { value } = this.state
     onChangeBrightness && onChangeBrightness(value)
+  }
+
+  onPressIndicator = (direction: string) => {
+    const { value } = this.state
+    const nextValue = direction === 'left'
+      ? value - 10
+      : value + 10
+    this.onChangeValue(
+      Math.min(Math.max(parseInt(nextValue), MIN_VALUE), MAX_VALUE),
+      true,
+    )
   }
 
   render(): React$Element<any> {
@@ -58,23 +85,28 @@ class BrightnessController extends Component<void, Props, State> {
           </LinearGradient>
         </Animated.View>
         <View style={styles.controls}>
-          <Image
-            style={styles.indicator}
-            source={require('./assets/min.png')}
-          />
+          <Touchable onPress={() => this.onPressIndicator('left')}>
+            <Image
+              style={styles.indicator}
+              source={require('./assets/min.png')}
+            />
+          </Touchable>
           <Slider
             style={styles.slider}
             minimumTrackTintColor={PRIMARY_BRAND_COLOR_50}
             step={1}
-            maximumValue={100}
+            minimumValue={MIN_VALUE}
+            maximumValue={MAX_VALUE}
             value={value}
             onValueChange={this.onChangeValue}
             onSlidingComplete={this.onSlidingComplete}
           />
-          <Image
-            style={styles.indicator}
-            source={require('./assets/max.png')}
-          />
+          <Touchable onPress={() => this.onPressIndicator('right')}>
+            <Image
+              style={styles.indicator}
+              source={require('./assets/max.png')}
+            />
+          </Touchable>
         </View>
       </View>
     )

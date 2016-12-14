@@ -25,10 +25,12 @@ const styles = StyleSheet.create({
       ? rem(20)
       : rem(18),
   },
-  pastille: {
-    margin: Dimensions.get('window').width >= 375
+  touchable: {
+    padding: Dimensions.get('window').width >= 375
       ? rem(2)
       : rem(1.5),
+  },
+  pastille: {
     width: PASTILLE_SIZE,
     height: PASTILLE_SIZE,
     borderRadius: PASTILLE_SIZE / 2,

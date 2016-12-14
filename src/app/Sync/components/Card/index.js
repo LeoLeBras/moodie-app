@@ -17,18 +17,15 @@ const Touchable = Platform.OS === 'ios'
 type Props = {
   name: string,
   active: boolean,
-  renderIcon?: () => React$Element<any>,
   onPress: (integration: string) => void,
 }
 
-const Card = ({ renderIcon, name, active, onPress }: Props): React$Element<any> => (
+const Card = ({ name, active, onPress }: Props): React$Element<any> => (
   <View style={styles.container}>
-    {renderIcon &&
-      <Image
-        source={integrations[name]}
-        style={styles.icon}
-      />
-    }
+    <Image
+      source={integrations[name]}
+      style={styles.icon}
+    />
     <Text style={styles.name}>
       {`${name.slice(0, 1).toUpperCase()}${name.slice(1)}`}
     </Text>

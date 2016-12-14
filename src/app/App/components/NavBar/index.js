@@ -26,7 +26,10 @@ const NavBar = ({ history }: Props): React$Element<any> => (
       <Match
         pattern="/app/manual"
         component={() => (
-          <Touchable onPress={() => history.push('/app/mood')}>
+          <Touchable
+            style={styles.button}
+            onPress={() => history.push('/app/mood')}
+          >
             <Image
               style={styles.icon}
               source={require('./assets/home.png')}
@@ -37,7 +40,10 @@ const NavBar = ({ history }: Props): React$Element<any> => (
       <Match
         pattern="/app/mood"
         component={() => (
-          <Touchable onPress={() => history.push('/app/manual/colors')}>
+          <Touchable
+            style={styles.button}
+            onPress={() => history.push('/app/manual/colors')}
+          >
             <Image
               style={styles.icon}
               source={require('./assets/settings.png')}
@@ -48,7 +54,10 @@ const NavBar = ({ history }: Props): React$Element<any> => (
       <Match
         pattern="/app/sync"
         component={() => (
-          <Touchable onPress={() => history.goBack()}>
+          <Touchable
+            style={styles.button}
+            onPress={() => history.goBack()}
+          >
             <Image
               style={styles.icon}
               source={require('./assets/back.png')}
@@ -62,7 +71,10 @@ const NavBar = ({ history }: Props): React$Element<any> => (
       <Match
         pattern="/app/(mood|manual)"
         component={() => (
-          <Touchable onPress={() => history.push('/app/sync')}>
+          <Touchable
+            style={styles.button}
+            onPress={() => history.push('/app/sync')}
+          >
             <Image
               style={styles.icon}
               source={require('./assets/sync.png')}

@@ -56,11 +56,16 @@ class BrightnessController extends Component<void, Props, State> {
           {colors.map((color, key) => {
             const rgb = `rgb(${color.r}, ${color.g}, ${color.b})`
             return (
-              <TouchableWithoutFeedback key={key} onPress={() => this.onChangeColor(color)}>
-                <View style={[styles.pastille, { backgroundColor: rgb, shadowColor: rgb }]}>
-                  {index === key &&
-                    <View style={[styles.active, { borderColor: rgb }]} />
-                  }
+              <TouchableWithoutFeedback
+                key={key}
+                onPress={() => this.onChangeColor(color)}
+              >
+                <View style={styles.touchable}>
+                  <View style={[styles.pastille, { backgroundColor: rgb, shadowColor: rgb }]}>
+                    {index === key &&
+                      <View style={[styles.active, { borderColor: rgb }]} />
+                    }
+                  </View>
                 </View>
               </TouchableWithoutFeedback>
             )

@@ -40,9 +40,6 @@ const styles = StyleSheet.create({
     borderColor: PRIMARY_BRAND_COLOR_50,
     borderRadius: rem(.25),
   },
-  activeButton: {
-    opacity: .75,
-  },
   buttonWrapper: {
     flexDirection: 'row',
     justifyContent: 'center',
