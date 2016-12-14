@@ -1,9 +1,14 @@
 /* @flow */
 /* eslint global-require: 0 */
 
-import React, { cloneElement } from 'react'
+import React from 'react'
 import { Platform, View, TouchableOpacity, TouchableNativeFeedback, Image, Text } from 'react-native'
 import styles from './styles'
+
+const integrations = {
+  spotify: require('./assets/spotify.png'),
+  health: require('./assets/health.png'),
+}
 
 const Touchable = Platform.OS === 'ios'
   ? TouchableOpacity
@@ -18,11 +23,15 @@ type Props = {
 
 const Card = ({ renderIcon, name, active, onPress }: Props): React$Element<any> => (
   <View style={styles.container}>
-    {renderIcon && cloneElement(
-      renderIcon(),
-      { style: styles.icon }
-    )}
-    <Text style={styles.name}>{name}</Text>
+    {renderIcon &&
+      <Image
+        source={integrations[name]}
+        style={styles.icon}
+      />
+    }
+    <Text style={styles.name}>
+      {`${name.slice(0, 1).toUpperCase()}${name.slice(1)}`}
+    </Text>
     <Touchable
       onPress={() => onPress(name.toLowerCase())}
       style={[styles.button, active && styles.activeButton]}

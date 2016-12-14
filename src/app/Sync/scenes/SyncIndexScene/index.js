@@ -1,8 +1,9 @@
 /* @flow */
+/* eslint arrow-parens: 0 */
 /* eslint global-require: 0 */
 
 import React, { Component } from 'react'
-import { ScrollView, View, Image } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import Title from '@components/Title'
 import IntegrationsContainer from './../../containers/IntegrationsContainer'
 import Card from './../../components/Card'
@@ -19,23 +20,19 @@ class SyncIndexScene extends Component {
       <ScrollView contentContainerStyle={styles.container}>
         <Title style={styles.title}>
           Nous avons trouvé 3 applications {`\n`}
-          pouvant être liées à moodie.
+          pouvant être liées à Moodie.
         </Title>
         <IntegrationsContainer>
           {({ integrations, toogleIntegration }) => (
             <View>
-              <Card
-                active={integrations.spotify}
-                renderIcon={() => <Image source={require('./assets/spotify.png')} />}
-                name="Spotify"
-                onPress={toogleIntegration}
-              />
-              <Card
-                active={integrations.health}
-                renderIcon={() => <Image source={require('./assets/health.png')} />}
-                name="Health"
-                onPress={toogleIntegration}
-              />
+              {Object.keys(integrations).map((integration) => (
+                <Card
+                  key={integration}
+                  active={integrations[integration]}
+                  name={integration}
+                  onPress={toogleIntegration}
+                />
+              ))}
             </View>
           )}
         </IntegrationsContainer>
