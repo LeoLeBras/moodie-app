@@ -1,5 +1,6 @@
 /* @flow */
 /* eslint global-require: 0 */
+/* eslint react/no-unused-prop-types: 0 */
 
 import React, { Component } from 'react'
 import { View, Image } from 'react-native'
@@ -8,15 +9,45 @@ import { withHistory } from '@helpers/router'
 import Title from '@components/Title'
 import HueContainer from './../../containers/HueContainer'
 import TabItem from './../../components/TabItem'
-import ColorsController from './../../components/ColorsController'
+import SaturationController from './../../components/SaturationController'
 import BrightnessController from './../../components/BrightnessController'
 import styles from './styles'
 
-class ManualIndexScene extends Component<any, any, any> {
+type Props = {
+  history: {
+    push: (pathname: string) => void,
+    listen: (callback: Function) => void,
+    location: {
+      pathname: string,
+    },
+  },
+}
+
+class ManualIndexScene extends Component<any, Props, any> {
+
+  props: Props
+  unlistenHistory: any
+
+  componentDidMount() {
+    // @TODO Remove this fucking hack
+    this.unlistenHistory = this.props.history.listen((action) => {
+      if (action.pathname.includes('app/manual')) {
+        this.forceUpdate()
+      }
+    })
+  }
+
+  componentWillUnmount() {
+    this.unlistenHistory()
+  }
+
+  shouldComponentUpdate(): boolean {
+    return true
+  }
 
   render(): React$Element<any> {
     const { history } = this.props
-    const colorsTabIsActive = matchPattern('/app/manual/colors', history.location)
+    const saturationTabIsActive = matchPattern('/app/manual/saturation', history.location)
     const brightnessTabIsActive = matchPattern('/app/manual/brightness', history.location)
     return (
       <View style={styles.container}>
@@ -26,14 +57,14 @@ class ManualIndexScene extends Component<any, any, any> {
         </Title>
         <View style={styles.tabBar}>
           <TabItem
-            active={colorsTabIsActive}
-            renderIcon={colorsTabIsActive
-              ? () => <Image source={require('./assets/colors_active.png')} />
-              : () => <Image source={require('./assets/colors_default.png')} />
+            active={saturationTabIsActive}
+            renderIcon={saturationTabIsActive
+              ? () => <Image source={require('./assets/saturation_active.png')} />
+              : () => <Image source={require('./assets/saturation_default.png')} />
             }
-            onPress={() => history.push('/app/manual/colors')}
+            onPress={() => history.push('/app/manual/saturation')}
           >
-            Couleurs
+            Saturation
           </TabItem>
           <TabItem
             active={brightnessTabIsActive}
@@ -47,15 +78,25 @@ class ManualIndexScene extends Component<any, any, any> {
           </TabItem>
         </View>
         <HueContainer>
-          {({ changeColor, changeBrightness }) => (
+          {({ changeSaturation, changeBrightness, hue }) => (
             <View style={styles.content}>
               <Match
-                pattern="/app/manual/colors"
-                component={() => <ColorsController onChangeColor={changeColor} />}
+                pattern="/app/manual/saturation"
+                component={() => (
+                  <SaturationController
+                    onChangeSaturation={changeSaturation}
+                    saturation={hue.saturation}
+                  />
+                )}
               />
               <Match
                 pattern="/app/manual/brightness"
-                component={() => <BrightnessController onChangeBrightness={changeBrightness} />}
+                component={() => (
+                  <BrightnessController
+                    onChangeBrightness={changeBrightness}
+                    brightness={hue.brightness}
+                  />
+                )}
               />
             </View>
           )}

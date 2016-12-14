@@ -2557,6 +2557,10 @@ lodash@^4.0.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.2, l
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.2.tgz#34a3055babe04ce42467b607d700072c7ff6bf42"
 
+lodash@v4.17.0:
+  version "4.17.0"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.0.tgz#93f4466e5ab73e5a1f1216c34eea11535f0a8df5"
+
 longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
@@ -3116,7 +3120,7 @@ raw-body@~2.1.2:
     iconv-lite "0.4.13"
     unpipe "1.0.0"
 
-react-addons-shallow-compare@^15.4.1:
+react-addons-shallow-compare@^15.3.2, react-addons-shallow-compare@^15.4.1:
   version "15.4.1"
   resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.4.1.tgz#b68103dd4d13144cb221065f6021de1822bd435a"
 
@@ -3142,6 +3146,21 @@ react-native-linear-gradient@^1.5.15:
   version "1.5.15"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-1.5.15.tgz#4413111934dc1d8f5e0572ca96e60b1a2cf41f4d"
 
+"react-native-motion-manager@https://github.com/pwmckenna/react-native-motion-manager":
+  version "0.0.6"
+  resolved "https://github.com/pwmckenna/react-native-motion-manager#219bda9b295f85d50aaf5495aab193259bc7aa71"
+
+react-native-router-navigation@v1.0.0-alpha.2:
+  version "1.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/react-native-router-navigation/-/react-native-router-navigation-1.0.0-alpha.2.tgz#8ece1b581efbc3d762c0c31648f43b6dabcf7e2d"
+  dependencies:
+    lodash v4.17.0
+    react-addons-shallow-compare "^15.3.2"
+    react-native-tab-view v0.0.38
+    react-router "^4.0.0-alpha.3"
+    react-static-container "^1.0.1"
+    recompose "^0.20.2"
+
 react-native-svg@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-4.4.1.tgz#8c0f27c0236344b8c8a45ed3f6461dd89233be81"
@@ -3152,6 +3171,10 @@ react-native-svg@^4.4.1:
 react-native-tab-view@^0.0.40:
   version "0.0.40"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.40.tgz#5339d1ea796878dcf4840e9d3592df865de361ef"
+
+react-native-tab-view@v0.0.38:
+  version "0.0.38"
+  resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.38.tgz#4194bba0abda9f781101c1a995c92733b194461a"
 
 react-native@v0.39.2:
   version "0.39.2"
@@ -3248,7 +3271,7 @@ react-redux@^4.4.6:
     lodash "^4.2.0"
     loose-envify "^1.1.0"
 
-react-router@v4.0.0-alpha.6:
+react-router@^4.0.0-alpha.3, react-router@v4.0.0-alpha.6:
   version "4.0.0-alpha.6"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-4.0.0-alpha.6.tgz#239fcf9a6ba7997021022c9b51d72d370f7b6bf4"
   dependencies:
@@ -3256,6 +3279,10 @@ react-router@v4.0.0-alpha.6:
     path-to-regexp "^1.5.3"
     query-string "4.2.3"
     react-broadcast "^0.1.2"
+
+react-static-container@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-static-container/-/react-static-container-1.0.1.tgz#694c0dd68a896b879519afb548399cc1989c9ab0"
 
 react-timer-mixin@^0.13.2:
   version "0.13.3"

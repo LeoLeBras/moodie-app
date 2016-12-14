@@ -23,6 +23,8 @@
 		"react-native": "v0.39.2",
 		"react-native-apple-healthkit": "^0.2.1",
 		"react-native-linear-gradient": "^1.5.15",
+		"react-native-motion-manager": "https://github.com/pwmckenna/react-native-motion-manager",
+		"react-native-router-navigation": "v1.0.0-alpha.2",
 		"react-native-svg": "^4.4.1",
 		"react-native-tab-view": "^0.0.40",
 		"react-redux": "^4.4.6",

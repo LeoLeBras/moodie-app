@@ -2,7 +2,13 @@
 
 import AppleHealthKit from 'react-native-apple-healthkit'
 
-export const getHeartRateSamples = (): Promise<Response> => {
+export type Sample = {
+  startDate: string,
+  endDate: string,
+  value: number;
+}
+
+export const getHeartRateSamples = (): Promise<Array<Sample>> => {
   return new Promise((resolve, reject) => {
     const options = {
       unit: 'bpm',
@@ -11,7 +17,7 @@ export const getHeartRateSamples = (): Promise<Response> => {
       ascending: false,
       limit: 10,
     }
-    AppleHealthKit.getHeartRateSamples(options, (err: Object, samples: Array<Object>) => {
+    AppleHealthKit.getHeartRateSamples(options, (err: Object, samples: Array<Sample>) => {
       if (err) return reject(err)
       return resolve(samples)
     })

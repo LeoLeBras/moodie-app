@@ -10,8 +10,8 @@ export const BRIDGE_SEARCH = [
   BRIDGE_SEARCH_FAILED, // reject
 ]
 
-// Change color
-export const CHANGE_COLOR = '@@hue/CHANGE_COLOR'
+// Change saturation
+export const CHANGE_SATURATION = '@@hue/CHANGE_SATURATION'
 
 // Change brightness
 export const CHANGE_BRIGHTNESS = '@@hue/CHANGE_BRIGHTNESS'

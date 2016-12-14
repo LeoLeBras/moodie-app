@@ -7,6 +7,13 @@ import LinearGradient from 'react-native-linear-gradient'
 import { PRIMARY_BRAND_COLOR_40, PRIMARY_BRAND_COLOR_50, SECONDARY_BRAND_COLOR_40 } from '@theme/colors'
 import styles from './styles'
 
+const extractHSL = (color: string) => {
+  const h = parseInt(color.slice(4, color.indexOf(',')))
+  const s = parseInt(color.slice(color.indexOf(',') + 2, color.indexOf('%')))
+  const l = parseInt(color.slice(color.indexOf('%,') + 3, color.indexOf('%)')))
+  return { h, s, l }
+}
+
 const MIN_VALUE = 0
 const MAX_VALUE = 100
 
@@ -16,14 +23,16 @@ const Touchable = Platform.OS === 'ios'
 
 type State = {
   value: number, // 0 => 100
+  primaryColor: string,
+  secondaryColor: string,
 }
 
 type Props = {
-  onChangeBrightness?: (value: number) => void,
-  brightness: number,
+  saturation: number,
+  onChangeSaturation?: (value: number) => void,
 }
 
-class BrightnessController extends Component<void, Props, State> {
+class SaturationController extends Component<void, Props, State> {
 
   props: Props
   state: State
@@ -31,13 +40,29 @@ class BrightnessController extends Component<void, Props, State> {
 
   constructor(props: Props) {
     super(props)
-    this.state = { value: props.brightness }
-    this.pan = new Animated.Value(props.brightness)
+    const { saturation } = props
+    const primaryColor = extractHSL(PRIMARY_BRAND_COLOR_40)
+    const secondaryColor = extractHSL(SECONDARY_BRAND_COLOR_40)
+    this.state = {
+      value: saturation,
+      primaryColor: `hsl(${primaryColor.h}, ${saturation}%, ${primaryColor.l}%)`,
+      secondaryColor: `hsl(${secondaryColor.h}, ${saturation}%, ${secondaryColor.l}%)`,
+    }
+    this.pan = new Animated.Value(saturation)
   }
 
   onChangeValue = (value: number, spring: boolean = false): any => {
     if (value !== this.state.value) {
-      this.setState({ value })
+      const offset = value - this.state.value
+      const primaryColor = extractHSL(this.state.primaryColor)
+      const nextPrimaryColor = `hsl(${primaryColor.h}, ${Math.min(Math.max(parseInt(primaryColor.s + offset), 0), 100)}%, ${primaryColor.l}%)`
+      const secondaryColor = extractHSL(this.state.secondaryColor)
+      const nextSecondaryColor = `hsl(${secondaryColor.h}, ${Math.min(Math.max(parseInt(secondaryColor.s + offset), 0), 100)}%, ${secondaryColor.l}%)`
+      this.setState({
+        value,
+        primaryColor: nextPrimaryColor,
+        secondaryColor: nextSecondaryColor,
+      })
       if (spring) {
         return Animated.spring(
           this.pan,
@@ -53,9 +78,9 @@ class BrightnessController extends Component<void, Props, State> {
   }
 
   onSlidingComplete = (): void => {
-    const { onChangeBrightness } = this.props
+    const { onChangeSaturation } = this.props
     const { value } = this.state
-    onChangeBrightness && onChangeBrightness(value)
+    onChangeSaturation && onChangeSaturation(value)
   }
 
   onPressIndicator = (direction: string) => {
@@ -74,22 +99,18 @@ class BrightnessController extends Component<void, Props, State> {
   }
 
   render(): React$Element<any> {
-    const { value } = this.state
+    const { value, primaryColor, secondaryColor } = this.state
     const scale = this.pan.interpolate({
       inputRange: [0, 100],
       outputRange: [.875, 1.125],
     })
-    const opacity = this.pan.interpolate({
-      inputRange: [0, 35, 100],
-      outputRange: [.25, .5, 1],
-    })
     return (
       <View style={styles.container}>
-        <Animated.View style={{ opacity, transform: [{ scale }] }}>
+        <Animated.View style={{ transform: [{ scale }] }}>
           <LinearGradient
             style={styles.input}
             start={[0, 1]} end={[1, 0]}
-            colors={[PRIMARY_BRAND_COLOR_40, SECONDARY_BRAND_COLOR_40]}
+            colors={[primaryColor, secondaryColor]}
           >
             <Text style={styles.value}>{value}</Text>
           </LinearGradient>
@@ -124,4 +145,4 @@ class BrightnessController extends Component<void, Props, State> {
 
 }
 
-export default BrightnessController
+export default SaturationController

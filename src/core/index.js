@@ -8,8 +8,14 @@ import Router from './Router'
 
 const store = createStore()
 const recket = createRecket(
-  'http://localhost:3000',
-  { jsonp: false, transports: ['websocket'] },
+  'http://192.168.0.188:3000',
+  {
+    jsonp: false,
+    transports: ['websocket'],
+    reconnection: true,
+    reconnectionDelay: 500,
+    reconnectionAttempts: 100,
+  },
 )
 
 const Kernel = (): React$Element<any> => (

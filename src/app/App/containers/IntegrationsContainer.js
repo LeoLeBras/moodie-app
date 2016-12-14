@@ -1,11 +1,11 @@
 /* @flow */
 
 import { connect } from 'react-redux'
-import { changeSaturation, changeBrightness } from '@store/hue'
 import { createContainer } from '@helpers/redux'
+import { toogleIntegration } from '@store/integrations'
 
-const mapStateToProps = ({ hue }) => ({ hue })
-const mapDispatchToProps = { changeSaturation, changeBrightness }
+const mapStateToProps = ({ integrations }) => ({ integrations })
+const mapDispatchToProps = { toogleIntegration }
 
 export default createContainer(
   connect(

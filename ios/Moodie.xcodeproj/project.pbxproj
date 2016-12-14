@@ -27,6 +27,7 @@
 		1BDF893123A8476A873E119F /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B71D70F789544BABBC892ED6 /* OpenSans-Semibold.ttf */; };
 		226647221DFE982C000A5EC0 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226647211DFE982C000A5EC0 /* HealthKit.framework */; };
 		4537C24874614AC6B26807DE /* OpenSans-Light-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D7115859C7244E4B8CA3A95 /* OpenSans-Light-Italic.ttf */; };
+		46B370143FC94CCFAD6CC2E6 /* libRNMotionManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06AB5D5066674407BE791988 /* libRNMotionManager.a */; };
 		4E738E0247A145E8871BC1E6 /* libRCTAppleHealthKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F8CF9078D94F0488E780B2 /* libRCTAppleHealthKit.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		82352A374551455481B56D3C /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE19A455A87478680DF58F0 /* libRNSVG.a */; };
@@ -171,6 +172,20 @@
 			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
 			remoteInfo = RNSVG;
 		};
+		22F95C681E014F3A005E14ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AD7DFBCEB8B4C0D9ACB67A2 /* RNMotionManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BB9CC7ED1AE0A2EB008A1D08;
+			remoteInfo = RNMotionManager;
+		};
+		22F95C6A1E014F3A005E14ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AD7DFBCEB8B4C0D9ACB67A2 /* RNMotionManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BB9CC7F81AE0A2EB008A1D08;
+			remoteInfo = RNMotionManagerTests;
+		};
 		5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
@@ -212,6 +227,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MoodieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoodieTests.m; sourceTree = "<group>"; };
 		0453E1EA8EF14D7BB36DED05 /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
+		06AB5D5066674407BE791988 /* libRNMotionManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNMotionManager.a; sourceTree = "<group>"; };
 		0D7115859C7244E4B8CA3A95 /* OpenSans-Light-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Light-Italic.ttf"; path = "../src/ressources/assets/fonts/OpenSans-Light-Italic.ttf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -230,6 +246,7 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6AC81F158D8B4A838302A29E /* OpenSans-Bold-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold-Italic.ttf"; path = "../src/ressources/assets/fonts/OpenSans-Bold-Italic.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7AD7DFBCEB8B4C0D9ACB67A2 /* RNMotionManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNMotionManager.xcodeproj; path = "../node_modules/react-native-motion-manager/RNMotionManager.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		947F764E04C2478B84873F3F /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../src/ressources/assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		B71D70F789544BABBC892ED6 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Semibold.ttf"; path = "../src/ressources/assets/fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
@@ -269,6 +286,7 @@
 				82352A374551455481B56D3C /* libRNSVG.a in Frameworks */,
 				4E738E0247A145E8871BC1E6 /* libRCTAppleHealthKit.a in Frameworks */,
 				E8D7041E06F344F988A31F27 /* libBVLinearGradient.a in Frameworks */,
+				46B370143FC94CCFAD6CC2E6 /* libRNMotionManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +426,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		22F95C4F1E014F3A005E14ED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22F95C691E014F3A005E14ED /* libRNMotionManager.a */,
+				22F95C6B1E014F3A005E14ED /* RNMotionManagerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3181AFE0577042FAA9EE2E29 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +484,7 @@
 				3EA076C6C3F14C5CA274A8D1 /* RNSVG.xcodeproj */,
 				E3B33605AFB54756A3EA843F /* RCTAppleHealthKit.xcodeproj */,
 				3DC79DBFCCE94AD3B8923ABD /* BVLinearGradient.xcodeproj */,
+				7AD7DFBCEB8B4C0D9ACB67A2 /* RNMotionManager.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -620,6 +648,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = 22F95C4F1E014F3A005E14ED /* Products */;
+					ProjectRef = 7AD7DFBCEB8B4C0D9ACB67A2 /* RNMotionManager.xcodeproj */;
+				},
+				{
 					ProductGroup = 2296903C1DFE046300AACF00 /* Products */;
 					ProjectRef = 3EA076C6C3F14C5CA274A8D1 /* RNSVG.xcodeproj */;
 				},
@@ -759,6 +791,20 @@
 			remoteRef = 229690521DFE046300AACF00 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		22F95C691E014F3A005E14ED /* libRNMotionManager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNMotionManager.a;
+			remoteRef = 22F95C681E014F3A005E14ED /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22F95C6B1E014F3A005E14ED /* RNMotionManagerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RNMotionManagerTests.xctest;
+			remoteRef = 22F95C6A1E014F3A005E14ED /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -886,6 +932,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -903,6 +950,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1003,6 +1051,7 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-apple-healthkit/RCTAppleHealthKit",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-motion-manager/RNMotionManager/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1049,6 +1098,7 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-apple-healthkit/RCTAppleHealthKit",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-motion-manager/RNMotionManager/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

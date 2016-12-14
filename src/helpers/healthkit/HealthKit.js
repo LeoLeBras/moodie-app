@@ -14,7 +14,7 @@ type Data = {
 type Props = {
   children?: () => React$Element<any>,
   permissions: Permissions,
-  read: { [key: string]: () => Promise<any> },
+  read?: { [key: string]: () => Promise<any> },
   onReadSuccess?: (data: Data) => void,
   onReadFailure?: (error: Object) => void,
   polling?: number,
@@ -39,6 +39,7 @@ class HealthKit extends Component<void, Props, State> {
 
   loadHealthKit = async () => {
     const { permissions, read, onReadSuccess, onReadFailure } = this.props
+    if (!read) return
     try {
       await initialyze(permissions)
       const response = await Promise.all(Object.keys(read).map(async (index) => {

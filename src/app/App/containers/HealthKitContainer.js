@@ -1,11 +1,11 @@
 /* @flow */
 
 import { connect } from 'react-redux'
-import { changeSaturation, changeBrightness } from '@store/hue'
 import { createContainer } from '@helpers/redux'
+import { getData } from '@store/health'
 
-const mapStateToProps = ({ hue }) => ({ hue })
-const mapDispatchToProps = { changeSaturation, changeBrightness }
+const mapStateToProps = ({ health }) => ({ health })
+const mapDispatchToProps = { getData }
 
 export default createContainer(
   connect(

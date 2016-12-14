@@ -15,8 +15,7 @@ const Touchable = Platform.OS === 'ios'
 
 type Props = {
   history: {
-    push: (location: string) => void,
-    goBack: () => void,
+    replace: (location: string) => void,
   },
 }
 
@@ -28,7 +27,7 @@ const NavBar = ({ history }: Props): React$Element<any> => (
         component={() => (
           <Touchable
             style={styles.button}
-            onPress={() => history.push('/app/mood')}
+            onPress={() => history.replace('/app/mood')}
           >
             <Image
               style={styles.icon}
@@ -42,7 +41,7 @@ const NavBar = ({ history }: Props): React$Element<any> => (
         component={() => (
           <Touchable
             style={styles.button}
-            onPress={() => history.push('/app/manual/colors')}
+            onPress={() => history.replace('/app/manual/saturation')}
           >
             <Image
               style={styles.icon}
@@ -56,7 +55,7 @@ const NavBar = ({ history }: Props): React$Element<any> => (
         component={() => (
           <Touchable
             style={styles.button}
-            onPress={() => history.goBack()}
+            onPress={() => history.replace('mood')}
           >
             <Image
               style={styles.icon}
@@ -69,11 +68,11 @@ const NavBar = ({ history }: Props): React$Element<any> => (
     <Logo />
     <View style={styles.button}>
       <Match
-        pattern="/app/(mood|manual)"
+        pattern="/app/mood"
         component={() => (
           <Touchable
             style={styles.button}
-            onPress={() => history.push('/app/sync')}
+            onPress={() => history.replace('/app/sync')}
           >
             <Image
               style={styles.icon}

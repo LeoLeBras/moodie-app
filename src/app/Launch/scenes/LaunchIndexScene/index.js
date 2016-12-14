@@ -36,8 +36,8 @@ class LaunchIndexScene extends Component<void, Props, void> {
               {!isLoading &&
                 <View style={styles.wrapper}>
                   <Text style={styles.title}>
-                    Aucun nouveau {`\n`}
-                    Hue Bridge {`\n`}
+                    Aucun bridge {`\n`}
+                    Phillips Hue {`\n`}
                     trouvé
                   </Text>
                   <Text style={styles.help}>
@@ -52,7 +52,7 @@ class LaunchIndexScene extends Component<void, Props, void> {
                 <View style={[styles.wrapper]}>
                   <ActivityIndicator size="large" />
                   <Text style={styles.label}>
-                    Recherce de Hue Bridge ...
+                    Recherce en cours ...
                   </Text>
                 </View>
               }

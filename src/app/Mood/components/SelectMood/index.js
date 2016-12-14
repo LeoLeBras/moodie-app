@@ -142,7 +142,7 @@ export default class CoverflowExample extends Component {
           key={index}
           style={[styles.value, {
             opacity: props.position.interpolate({
-              inputRange: this.state.routes.map((x, i) => i),
+              inputRange: this.state.routes.map((x, i) => i - 0),
               outputRange: this.state.routes.map((x, i) => index === i ? 1 : 0),
             }),
           }]}
