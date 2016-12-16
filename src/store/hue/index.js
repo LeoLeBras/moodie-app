@@ -9,12 +9,12 @@ import type { Hue } from './types'
 const {
   BRIDGE_SEARCH_REQUESTED, BRIDGE_SEARCH_SUCCEEDED, BRIDGE_SEARCH_FAILED,
   CHANGE_SATURATION, CHANGE_BRIGHTNESS,
-  TURN_ON, TURN_OFF,
+  GET_INITIAL_STATE, TURN_ON, TURN_OFF,
 } = actionTypes
 
 const initialState = {
   isLoading: true,
-  isOn: false,
+  isOn: true,
   isConnected: false,
   brightness: 100,
   saturation: 75,
@@ -28,13 +28,19 @@ export default (state: Hue = initialState, action: Action): Hue => {
         return {
           ...state,
           ...persistedState,
-          isConnected: false,
+          isConnected: true,
           isLoading: true,
         }
       }
       return {
         ...state,
         isLoading: false,
+      }
+    }
+    case GET_INITIAL_STATE: {
+      return {
+        ...state,
+        isOn: action.payload.isOn,
       }
     }
     case TURN_ON: {

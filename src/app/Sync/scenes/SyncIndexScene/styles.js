@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    marginTop: rem(2.5),
+    paddingTop: rem(2.5),
     backgroundColor: NEUTRAL_COLOR_00,
   },
   title: {

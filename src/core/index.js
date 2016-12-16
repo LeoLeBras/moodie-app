@@ -8,7 +8,7 @@ import Router from './Router'
 
 const store = createStore()
 const recket = createRecket(
-  'http://192.168.0.188:3000',
+  'http://192.168.0.41:3000',
   {
     jsonp: false,
     transports: ['websocket'],

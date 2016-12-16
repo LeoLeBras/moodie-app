@@ -2,9 +2,9 @@
 /* eslint arrow-parens: 0 */
 /* eslint no-constant-condition: 0 */
 
-import { REHYDRATE } from 'redux-persist/constants'
 import { takeLatest } from 'redux-saga'
 import { put } from 'redux-saga/effects'
+import { BRIDGE_SEARCH_SUCCEEDED } from '@store/hue/actionTypes'
 import { sayIAmAlive } from './index'
 
 const sleep = (value: number) => new Promise((resolve) => {
@@ -13,11 +13,11 @@ const sleep = (value: number) => new Promise((resolve) => {
 
 function* beAlive() {
   while (true) {
-    yield sleep(30000)
+    yield sleep(5000)
     yield put(sayIAmAlive())
   }
 }
 
 export default function* auth(): any {
-  yield takeLatest(REHYDRATE, beAlive)
+  yield takeLatest(BRIDGE_SEARCH_SUCCEEDED, beAlive)
 }

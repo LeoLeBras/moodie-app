@@ -18,13 +18,13 @@ class SyncIndexScene extends Component {
   render(): React$Element<any> {
     return (
       <ScrollView contentContainerStyle={styles.container}>
-        <Title style={styles.title}>
-          Nous avons trouvé 3 applications {`\n`}
-          pouvant être liées à Moodie.
-        </Title>
         <IntegrationsContainer>
           {({ integrations, toogleIntegration }) => (
             <View>
+              <Title style={styles.title}>
+                Nous avons trouvé {Object.keys(integrations).length} applications {`\n`}
+                pouvant être liées à Moodie.
+              </Title>
               {Object.keys(integrations).map((integration) => (
                 <Card
                   key={integration}

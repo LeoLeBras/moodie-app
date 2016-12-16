@@ -19,13 +19,18 @@ class Connector extends Component<void, Props, void> {
 
   componentDidMount(): void {
     watch((action) => {
-      if (action.type) this.props.dispatch(action)
+      if (action.type) {
+        this.props.dispatch({
+          ...action,
+          watch: true,
+        })
+      }
     })(this.props.client)
   }
 
   componentWillReceiveProps(nextProps: Props): void {
     const { client, log } = nextProps
-    dispatch(log)(client)
+    if (!log.watch) dispatch(log)(client)
   }
 
   shouldComponentUpdate(): boolean {

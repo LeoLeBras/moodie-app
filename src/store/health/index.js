@@ -4,7 +4,7 @@
 import type { Action } from '@helpers/redux'
 import type { Sample } from '@helpers/healthkit/types'
 import type { Health } from './types'
-import { GET_STEP_COUNT, GET_DATA } from './actionTypes'
+import { DO_ACTIVITY, GET_STEP_COUNT, GET_SLEEP_SAMPLE, GET_DATA } from './actionTypes'
 
 const initialState = {}
 
@@ -23,7 +23,7 @@ export default (state: Health = initialState, action: Action): Health => {
   }
 }
 
-export const getStepCount = (steps: number) => ({
+export const getStepCount = (steps: Sample & { level: number }) => ({
   type: GET_STEP_COUNT,
   payload: { steps },
 })
@@ -33,7 +33,12 @@ export const getData = (data: { hearthRateSamlpe: Array<Sample>, stepCount: Samp
   payload: { ...data },
 })
 
-// export const getSleepAnalysis = (sleep) => ({
-//   type: GET_SLEEP_ANALYSIS,
-//   payload: { sleep },
-// })
+export const getSleepSample = (sleep: Sample) => ({
+  type: GET_SLEEP_SAMPLE,
+  payload: { sleep },
+})
+
+export const doActivity = () => ({
+  type: DO_ACTIVITY,
+  payload: {},
+})

@@ -5,7 +5,6 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import AppleHealthKit from 'react-native-apple-healthkit'
 import HealthKit, { getStepCount, getHeartRateSamples } from '@helpers/healthkit'
-import Motion from '@helpers/motion'
 import IntegrationsContainer from './../../containers/IntegrationsContainer'
 import HealthKitContainer from './../../containers/HealthKitContainer'
 import NavBar from './../../components/NavBar'
@@ -37,6 +36,7 @@ class App extends Component<void, Props, void> {
                 read: [
                   HKPERMS.StepCount,
                   HKPERMS.HeartRate,
+                  HKPERMS.SleepAnalysis,
                 ],
               },
             }
@@ -47,20 +47,13 @@ class App extends Component<void, Props, void> {
                     {({ getData }) => (
                       <HealthKit
                         permissions={HKOPTIONS}
-                        polling={2000}
+                        polling={10000}
                         onReadSuccess={getData}
                         read={{ getHeartRateSamples, getStepCount }}
                       />
                     )}
                   </HealthKitContainer>
                 }
-                <Motion
-                  polling={2000}
-                  gyroscope={false}
-                  accelerometer={false}
-                  magnetometer={false}
-                  onChange={(data) => console.log(data)}
-                />
               </View>
             )
           }}

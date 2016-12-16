@@ -2,7 +2,7 @@
 /* eslint arrow-parens: 0 */
 
 import type { Action } from '@helpers/redux'
-import { SELECT_MOOD, CHANGE_MOOD } from './actionTypes'
+import { SELECT_MOOD, UNSELECT_MOOD, CHANGE_MOOD } from './actionTypes'
 import type { Mood } from './types'
 
 const initialState = {
@@ -27,5 +27,10 @@ export default (state: Mood = initialState, action: Action): Mood => {
 
 export const selectMood = (mood: string) => ({
   type: SELECT_MOOD,
+  payload: { mood },
+})
+
+export const onUnselect = (mood: string) => ({
+  type: UNSELECT_MOOD,
   payload: { mood },
 })

@@ -29,10 +29,12 @@ class MoodIndexScene extends Component {
           si celle ci est erronée
         </Title>
         <MoodContainer>
-          {({ selectMood, mood }) => (
+          {({ selectMood, onUnselect, mood }) => (
             <SelectMood
               defaultMood={mood.value}
+              mood={mood.value}
               onSelect={selectMood}
+              onUnselect={onUnselect}
             />
           )}
         </MoodContainer>

@@ -38,25 +38,28 @@ const emotions = {
   },
 }
 
-const Mood = ({ value }: Props): React$Element<any> => (
-  <LinearGradient
-    style={styles.container}
-    start={[0, 1]} end={[1, 0]}
-    colors={[PRIMARY_BRAND_COLOR_40, SECONDARY_BRAND_COLOR_40]}
-  >
-    <Image
-      source={emotions[value].img}
-      style={styles.img}
-    />
-    <View>
-      <Text style={styles.value}>
-        Humeur : {emotions[value].name}
-      </Text>
-      <Text style={styles.state}>
-        Analyse activée
-      </Text>
-    </View>
-  </LinearGradient>
-)
+const Mood = ({ value }: Props): ?React$Element<any> => {
+  if (!emotions[value]) return null
+  return (
+    <LinearGradient
+      style={styles.container}
+      start={[0, 1]} end={[1, 0]}
+      colors={[PRIMARY_BRAND_COLOR_40, SECONDARY_BRAND_COLOR_40]}
+    >
+      <Image
+        source={emotions[value].img}
+        style={styles.img}
+      />
+      <View>
+        <Text style={styles.value}>
+          Humeur : {emotions[value].name}
+        </Text>
+        <Text style={styles.state}>
+          Analyse activée
+        </Text>
+      </View>
+    </LinearGradient>
+  )
+}
 
 export default Mood

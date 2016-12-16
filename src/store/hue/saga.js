@@ -8,6 +8,9 @@ import { REHYDRATE } from 'redux-persist/constants'
 import { searchHueBridge, findHueBridge, rejectHueBridge } from './index'
 import { BRIDGE_SEARCH_REQUESTED } from './actionTypes'
 
+const SEARCH_POLLING = 1500
+const SEARCH_DELAY = 1500
+
 const sleep = (value: number) => new Promise((resolve) => {
   setTimeout(resolve, value)
 })
@@ -20,26 +23,26 @@ function* searchBridge() {
   let i = 0
   let isSearching = true
   while (isSearching) {
-    yield sleep(500)
+    yield sleep(SEARCH_POLLING)
     const state = yield select(({ hue }) => ({ hue }))
     if (state.hue.isConnected) isSearching = false
-    i += 500
-    if (i > 1500) {
+    i += SEARCH_POLLING
+    if (i > SEARCH_DELAY) {
       yield put(rejectHueBridge())
       isSearching = false
     }
   }
 }
 
-function* fake() {
-  const state = yield select(({ hue }) => ({ hue }))
-  if (state.hue.isLoading) {
-    yield put(findHueBridge())
-  }
-}
+// function* fake() {
+//   const state = yield select(({ hue }) => ({ hue }))
+//   if (state.hue.isLoading) {
+//     yield put(findHueBridge())
+//   }
+// }
 
 export default function* auth(): any {
   yield takeLatest(REHYDRATE, requestBridge)
   yield takeLatest(BRIDGE_SEARCH_REQUESTED, searchBridge)
-  yield takeLatest(BRIDGE_SEARCH_REQUESTED, fake)
+  // yield takeLatest(BRIDGE_SEARCH_REQUESTED, fake)
 }

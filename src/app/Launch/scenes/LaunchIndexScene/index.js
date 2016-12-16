@@ -27,7 +27,7 @@ class LaunchIndexScene extends Component<void, Props, void> {
         {({ hue, searchHueBridge }): ?React$Element<any> => {
           const { isLoading, isConnected } = hue
           if (isConnected) {
-            setTimeout(() => history.push('app/mood'), 0) // Prevent warning
+            setTimeout(() => history.push('/app/mood'), 0) // Prevent warning
             return null
           }
           return (

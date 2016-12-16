@@ -84,14 +84,17 @@ class SaturationController extends Component<void, Props, State> {
   }
 
   onPressIndicator = (direction: string) => {
+    const { onChangeSaturation } = this.props
     const { value } = this.state
-    const nextValue = direction === 'left'
-      ? value - 10
-      : value + 10
+    const nextValue = Math.min(Math.max(
+      parseInt(direction === 'left' ? value - 10 : value + 10),
+      MIN_VALUE
+    ), MAX_VALUE)
     this.onChangeValue(
-      Math.min(Math.max(parseInt(nextValue), MIN_VALUE), MAX_VALUE),
+      nextValue,
       true,
     )
+    onChangeSaturation && onChangeSaturation(nextValue)
   }
 
   shouldComponentUpdate(nextProps: Props, nextState: State): boolean {

@@ -49,6 +49,7 @@ const initialLayout = {
 type Props = {
   defaultMood: string,
   onSelect: (mood: string) => void,
+  onUnselect: (mood: string) => void,
 }
 
 type State = {
@@ -113,9 +114,15 @@ export default class CoverflowExample extends Component {
   }
 
   onSelect = () => {
-    const mood = this.state.routes[this.state.index].key
-    this.setState({ isSelected: true })
-    this.props.onSelect(mood)
+    const { routes, index, isSelected } = this.state
+    const mood = routes[index].key
+    if (!isSelected) {
+      this.setState({ isSelected: true })
+      this.props.onSelect(mood)
+    } else {
+      this.setState({ isSelected: false })
+      this.props.onUnselect(mood)
+    }
   }
 
   renderScene = (props: Scene): React$Element<any> => {
@@ -152,6 +159,14 @@ export default class CoverflowExample extends Component {
       ))}
     </View>
   )
+
+  componentWillReceiveProps(nextProps: Props) {
+    const currentMood = nextProps.mood
+    const currentMoodIndex = Object.keys(emotions).indexOf(currentMood)
+    if (this.state.index !== currentMoodIndex) {
+      this.setState({ index: currentMoodIndex })
+    }
+  }
 
   shouldComponentUpdate(nextProps: Props, nextState: State): boolean {
     return (

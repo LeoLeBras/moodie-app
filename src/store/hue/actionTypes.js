@@ -21,3 +21,6 @@ export const TURN_ON = '@@hue/TURN_ON'
 
 // Turn off
 export const TURN_OFF = '@@hue/TURN_OFF'
+
+// Turn off
+export const GET_INITIAL_STATE = '@@hue/GET_INITIAL_STATE'
